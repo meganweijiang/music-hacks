@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { render } from 'react-dom'
 import Dropzone from 'react-dropzone'
 import request from 'superagent'
+import ReactPlayer from 'react-player'
  
 const CLOUDINARY_UPLOAD_PRESET = 'ai6fb6we';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dqblsemgo/upload';
@@ -10,10 +11,16 @@ export default class Upload extends Component {
   constructor(props) {
 	  super(props)
     this.state = {
-      uploadedFileCloundinaryURL: ''
+      uploadedFile: '',
+      uploadedFileCloundinaryURL: '',
+      playing: false,
+      hidden: true,
+      loop: true,
     }
     this.onDrop = this.onDrop.bind(this)
     this.handleSongUpload = this.handleSongUpload.bind(this)
+    this.playMusic = this.playMusic.bind(this)
+    this.stopMusic = this.stopMusic.bind(this)
   }
 
   onDrop(acceptedFiles, rejectedFiles) {
@@ -37,21 +44,37 @@ export default class Upload extends Component {
 
       if (response.body.secure_url !== '') {
         this.setState({
-          uploadedFileCloudinaryUrl: response.body.secure_url
+          uploadedFileCloudinaryURL: response.body.secure_url
         });
       }
     });
   }
 
+  playMusic() {
+    this.setState({playing: true})
+  }
+
+  stopMusic() {
+    this.setState({playing: false})
+  }
+
   render() {
     return (
       <div>
-        <Dropzone 
-        multiple={false}
-        accept="audio/*" 
-        onDrop={this.onDrop}>
-          <div>Add your audio file here.</div>
-        </Dropzone>
+        <div className="FileUpload">
+          <Dropzone 
+          multiple={false}
+          accept="audio/*" 
+          onDrop={this.onDrop}>
+            <p>Add your audio file here.</p>
+          </Dropzone>
+          <ReactPlayer 
+          url = {this.state.uploadedFileCloudinaryURL}
+          playing={this.state.playing} hidden={this.state.hidden} 
+          loop={this.state.loop} />
+          <button onClick={this.playMusic}>Play</button>         
+          <button onClick={this.stopMusic}>Stop</button>   
+        </div>
       </div>
     )
   }

@@ -23,7 +23,10 @@
   "license": "ISC",
   "dependencies": {
     "react": "^15.5.4",
+    "react-audio-recorder": "^2.0.0",
     "react-dom": "^15.5.4",
-    "react-dropzone": "^3.12.4"
+    "react-dropzone": "^3.12.4",
+    "react-player": "^0.15.0",
+    "react-recorder": "^1.0.0"
   }
 }
