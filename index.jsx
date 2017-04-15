@@ -19,6 +19,7 @@ class App extends Component {
 				<Play url="audio/7.mp3" name="&#x1f431;" iden="cat7"/>
 				<Play url="audio/8.mp3" name="&#x1f431;" iden="cat8"/>
 				</div>
+				<p id="footer">Created by <a href="http://github.com/meganweijiang">Megan Weijiang</a> for Music Hacks 2017</p>
 			</div>
 		)
 	}

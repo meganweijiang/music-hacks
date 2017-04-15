@@ -157,3 +157,21 @@ h1 {
 90% {color: #8000ff;}
 100% {color: #ff0080;}
 }
+
+#footer {
+	font-size: 16px;
+	padding: 200px 0px 50px 0px;
+}
+
+a {
+	text-decoration: none;
+	color: grey;
+}
+
+a:visited {
+	color: grey;
+}
+
+a:hover {
+	color: #e28888;
+}
