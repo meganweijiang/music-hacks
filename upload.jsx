@@ -46,6 +46,8 @@ export default class Upload extends Component {
         this.setState({
           uploadedFileCloudinaryURL: response.body.secure_url
         });
+        this.refs.play.toggleVisible()
+        this.refs.stop.toggleVisible()
       }
     });
   }
@@ -63,19 +65,45 @@ export default class Upload extends Component {
       <div>
         <div className="FileUpload">
           <Dropzone 
-          multiple={false}
-          accept="audio/*" 
-          onDrop={this.onDrop}>
-            <p>Add your audio file here.</p>
+            className="uploader"
+            multiple={false}
+            accept="audio/*" 
+            onDrop={this.onDrop}>
+              <p>Add your audio file here.</p>
           </Dropzone>
           <ReactPlayer 
-          url = {this.state.uploadedFileCloudinaryURL}
-          playing={this.state.playing} hidden={this.state.hidden} 
-          loop={this.state.loop} />
-          <button onClick={this.playMusic}>Play</button>         
-          <button onClick={this.stopMusic}>Stop</button>   
+            url = {this.state.uploadedFileCloudinaryURL}
+            playing={this.state.playing} hidden={this.state.hidden} 
+            loop={this.state.loop} />
+          <Button
+            ref="play"
+            text="Play"
+            action={this.playMusic}/>
+          <Button
+            ref="stop"
+            text="Stop"
+            action={this.stopMusic}/>      
         </div>
       </div>
     )
+  }
+}
+
+class Button extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      visible: false
+    }
+    this.toggleVisible = this.toggleVisible.bind(this)
+  }
+  toggleVisible() {
+    this.setState({visible: !this.state.visible})
+  }
+  render() {
+    if (this.state.visible) {
+      return <div className="wrapper"><button onClick={this.props.action} className="controls">{this.props.text}</button></div> 
+    }
+    return null
   }
 }

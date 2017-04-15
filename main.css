@@ -1,0 +1,84 @@
+.button {
+	position: relative;
+	left: 25%;
+	right: 25%;
+	float: left;
+	margin: 15px;
+	font-size: 30px;
+	text-align: center;
+	text-decoration: none;
+	border: 5px solid black;
+	border-radius: 90px;
+	color: white;
+}
+
+#cat1:hover, #cat2:hover, #cat3:hover, #cat4:hover, #cat5:hover, #cat6:hover, #cat7:hover, #cat8:hover {
+	background: black;
+}
+
+#cat1 {
+	background: #e28888;
+}
+
+#cat2 {
+	background: #e2a988;
+}
+
+#cat3 {
+	background: #e2d088;
+}
+
+#cat4 {
+	background: #bce288;
+}
+
+#cat5 {
+	background: #88e2a2;
+}
+
+#cat6 {
+	background: #88e0e2;
+}
+
+#cat7 {
+	background: #889de2;
+}
+
+#cat8 {
+	background: #a888e2;
+}
+
+#load > div {
+	width: 200px !important;
+	margin: auto;
+}
+
+.uploader {
+	height: 100px;
+	width: 200px;
+	border: dashed grey;
+	border-radius: 10px;
+	margin: auto;
+	padding: 50px;
+}
+
+p {
+	text-align: center;
+}
+
+.wrapper {
+	text-align: center;
+}
+
+.controls {
+	font-size: 30px;
+	text-decoration: none;
+	border: none;
+	background: black;
+	color: white;
+	border-radius: 10px;	
+}
+
+h1 {
+	text-align: center;
+}

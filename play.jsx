@@ -20,7 +20,7 @@ export default class Play extends Component {
       <Sound 
         url={this.props.url}
         playStatus={this.state.playStatus} />
-      	<button onClick={this.playSong}>{this.props.name}</button>
+      	<button onClick={this.playSong} className="button" id={this.props.iden}>{this.props.name}</button>
     </div>
     )
   }
