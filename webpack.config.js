@@ -10,6 +10,7 @@ module.exports = {
 		rules: [
 			{
 				test: [/\.jsx$/, /\.js$/],
+				exclude: [path.resolve(__dirname, 'node_modules')],
 				loader: 'babel-loader'
 			},
 		]

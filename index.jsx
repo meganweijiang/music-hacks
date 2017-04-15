@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 import Play from 'play'
+import Upload from 'upload'
 
 class App extends Component {
 	render() {
 		return(
 			<div>
+				<Upload/>
 				<Play url="audio/1.mp3" name="1" />
 				<Play url="audio/2.mp3" name="2" />
 				<Play url="audio/3.mp3" name="3" />
