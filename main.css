@@ -1,8 +1,7 @@
 .button {
 	position: relative;
-	left: 9%;
-	right: 50%;
 	float: left;
+	left: -140px;
 	margin: 50px 15px 40px 15px;
 	font-size: 30px;
 	text-align: center;
@@ -13,7 +12,7 @@
 }
 
 #cat1:hover, #cat2:hover, #cat3:hover, #cat4:hover, #cat5:hover, #cat6:hover, #cat7:hover, #cat8:hover {
-	background: black;
+	background: white;
 }
 
 #cat1 {
@@ -182,18 +181,19 @@ a:hover {
 	text-align: center;
 	font-size: 20px;
 	font-family: 'Bungee Shade', cursive;
-	left: 42%;
+	left: 33%;
 	float: left;
 	margin: 20px 0px 20px 0px;
 	border-radius: 10px;
 	background: white;
 	border: solid grey;
+	width: 220px;
 }
 
 #start:hover {
-	color: red;
+	color: #910d0d;
 }
 
 #stop:hover {
-	color: red;
+	color: #910d0d;
 }

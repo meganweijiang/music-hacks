@@ -19,7 +19,8 @@ export default class Upload extends Component {
       loop: true,
       onStart: false,
       command: 'pause',
-      blobOpts: {type: 'audio/mp3'}
+      blobOpts: {type: 'audio/mp3'},
+      recordString: 'Record'
     }
     this.onDrop = this.onDrop.bind(this)
     this.handleSongUpload = this.handleSongUpload.bind(this)
@@ -63,9 +64,11 @@ export default class Upload extends Component {
 
   startRecording() {
     this.setState({command: 'start'})
+    this.setState({recordString: 'Recording ...'})
   }
 
   stopRecording(blob) {
+    this.setState({recordString: 'Record'})
     console.log(blob)
     var a = document.createElement("a");
     document.body.appendChild(a);
@@ -104,7 +107,7 @@ export default class Upload extends Component {
             onStop={this.stopRecording}
             command={this.state.command}
             blobOpts={this.state.blobOpts}/>
-            <button onClick={this.startRecording} className="record" id="start">Record</button> 
+            <button onClick={this.startRecording} className="record" id="start">{this.state.recordString}</button> 
             <button onClick={this.stopIt} className="record" id="stop">Stop</button>
         </div>
       </div>
