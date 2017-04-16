@@ -1,10 +1,9 @@
 .button {
 	position: relative;
-	display: block;
-	left: 23%;
+	left: 9%;
 	right: 50%;
 	float: left;
-	margin: 15px;
+	margin: 50px 15px 40px 15px;
 	font-size: 30px;
 	text-align: center;
 	text-decoration: none;
@@ -84,7 +83,9 @@ p {
 	color: white;
 	border-radius: 10px;	
 	font-family: 'BioRhyme', serif;
-	margin: 10px;
+	margin: 0px;
+	padding: 15px;
+	font-weight: bold;
 }
 
 .controls:hover {
@@ -175,3 +176,17 @@ a:visited {
 a:hover {
 	color: #e28888;
 }
+
+.record {
+	position: relative;
+	text-align: center;
+	font-size: 20px;
+	font-family: 'Bungee Shade', cursive;
+	left: 42%;
+	float: left;
+	margin: 20px 0px 20px 0px;
+	border-radius: 10px;
+	background: white;
+	border: solid grey;
+}
+

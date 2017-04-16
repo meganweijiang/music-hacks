@@ -25,7 +25,10 @@
     "react": "^15.5.4",
     "react-audio-recorder": "^2.0.0",
     "react-dom": "^15.5.4",
+    "react-downloadbutton": "^1.0.0",
     "react-dropzone": "^3.12.4",
+    "react-file-download": "^0.3.2",
+    "react-native-audio": "^3.2.2",
     "react-player": "^0.15.0",
     "react-recorder": "^1.0.0"
   }

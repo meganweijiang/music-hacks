@@ -3,6 +3,8 @@ import { render } from 'react-dom'
 import Dropzone from 'react-dropzone'
 import request from 'superagent'
 import ReactPlayer from 'react-player'
+import Recorder from 'react-recorder'
+var fileDownload = require('react-file-download')
  
 const CLOUDINARY_UPLOAD_PRESET = 'ai6fb6we';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dqblsemgo/upload';
@@ -16,11 +18,16 @@ export default class Upload extends Component {
       playing: false,
       hidden: true,
       loop: true,
+      onStart: false,
+      command: 'pause',
+      blobOpts: {type: 'audio/mp3'}
     }
     this.onDrop = this.onDrop.bind(this)
     this.handleSongUpload = this.handleSongUpload.bind(this)
     this.playMusic = this.playMusic.bind(this)
-    this.stopMusic = this.stopMusic.bind(this)
+    this.startRecording = this.startRecording.bind(this)
+    this.stopRecording = this.stopRecording.bind(this)
+    this.stopIt = this.stopIt.bind(this)
   }
 
   onDrop(acceptedFiles, rejectedFiles) {
@@ -47,17 +54,25 @@ export default class Upload extends Component {
           uploadedFileCloudinaryURL: response.body.secure_url
         });
         this.refs.play.toggleVisible()
-        this.refs.stop.toggleVisible()
       }
     });
   }
 
   playMusic() {
-    this.setState({playing: true})
+    this.setState({playing: !this.state.playing})
   }
 
-  stopMusic() {
-    this.setState({playing: false})
+  startRecording() {
+    this.setState({command: 'start'})
+  }
+
+  stopRecording(blob) {
+    console.log(blob)
+    fileDownload(blob, 'music.mp3')
+  }
+
+  stopIt(){
+    this.setState({command: 'stop'})
   }
 
   render() {
@@ -77,12 +92,14 @@ export default class Upload extends Component {
             loop={this.state.loop} />
           <Button
             ref="play"
-            text="Play"
-            action={this.playMusic}/>
-          <Button
-            ref="stop"
-            text="Stop"
-            action={this.stopMusic}/>      
+            text="&#9654;||"
+            action={this.playMusic}/>  
+          <Recorder 
+            onStop={this.stopRecording}
+            command={this.state.command}
+            blobOpts={this.state.blobOpts}/>
+            <button onClick={this.startRecording} className="record" id="start">Record</button> 
+            <button onClick={this.stopIt} className="record" id="stop">Stop</button>
         </div>
       </div>
     )
