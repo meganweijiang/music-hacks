@@ -95,7 +95,8 @@ p {
 h1 {
 	text-align: center;
 	font-family: 'Bungee Shade', cursive;
-	font-size: 70px;
+	font-size: 100px;
+	margin: 130px 0px 20px 0px;
 	-webkit-animation:rainbow 1s infinite;
     -ms-animation:rainbow 1s infinite;
     -o-animation:rainbow 1s infinite;
@@ -160,7 +161,7 @@ h1 {
 
 #footer {
 	font-size: 16px;
-	padding: 150px 0px 50px 0px;
+	padding: 250px 0px 0px 0px;
 }
 
 a {

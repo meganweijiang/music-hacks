@@ -124,7 +124,7 @@ class Button extends Component {
     this.toggleVisible = this.toggleVisible.bind(this)
   }
   toggleVisible() {
-    this.setState({visible: !this.state.visible})
+    this.setState({visible: true})
   }
   render() {
     if (this.state.visible) {
