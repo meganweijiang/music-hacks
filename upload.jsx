@@ -4,7 +4,6 @@ import Dropzone from 'react-dropzone'
 import request from 'superagent'
 import ReactPlayer from 'react-player'
 import Recorder from 'react-recorder'
-var fileDownload = require('react-file-download')
  
 const CLOUDINARY_UPLOAD_PRESET = 'ai6fb6we';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dqblsemgo/upload';
@@ -68,7 +67,14 @@ export default class Upload extends Component {
 
   stopRecording(blob) {
     console.log(blob)
-    fileDownload(blob, 'music.mp3')
+    var a = document.createElement("a");
+    document.body.appendChild(a);
+    a.style = "display: none";
+    var url = window.URL.createObjectURL(blob);
+    a.href = url;
+    a.download = "music.mp3";
+    a.click();
+    window.URL.revokeObjectURL(url);
   }
 
   stopIt(){

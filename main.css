@@ -96,7 +96,7 @@ p {
 h1 {
 	text-align: center;
 	font-family: 'Bungee Shade', cursive;
-	font-size: 60px;
+	font-size: 70px;
 	-webkit-animation:rainbow 1s infinite;
     -ms-animation:rainbow 1s infinite;
     -o-animation:rainbow 1s infinite;
@@ -161,7 +161,7 @@ h1 {
 
 #footer {
 	font-size: 16px;
-	padding: 200px 0px 50px 0px;
+	padding: 150px 0px 50px 0px;
 }
 
 a {
@@ -190,3 +190,10 @@ a:hover {
 	border: solid grey;
 }
 
+#start:hover {
+	color: red;
+}
+
+#stop:hover {
+	color: red;
+}
